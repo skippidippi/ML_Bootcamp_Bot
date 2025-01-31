@@ -85,8 +85,8 @@ async def get_message(body: GetMessageRequestModel) -> GetMessageResponseModel:
     if OPEN_AI_API_KEY and PROXY_URL:
         response_from_openai = query_openai_with_context(body, model="gpt-4o")
 
-    # Добавляем случайные ошибки
-    response_from_openai = introduce_typos(response_from_openai)
+    # # Добавляем случайные ошибки
+    # response_from_openai = introduce_typos(response_from_openai)
 
     # Добавляем случайную задержку в зависимости от длины текста
     delay = random.uniform(1, min(5, len(response_from_openai) / 20))
